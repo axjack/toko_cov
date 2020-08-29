@@ -107,3 +107,10 @@ toko2 %>%
     subtitle=paste0(Sys.Date(),"データ取得","　所沢市人口 = ",format(toko.jinkou,big.mark = ","),"人とします。") )+
   theme_gray (base_family = "HiraKakuPro-W3")
 
+
+# 年代性別月ごとのコロナ陽性者数
+toko1 %>% ggplot(aes(年代, fill=性別)) + geom_bar(position = "dodge") +
+  facet_wrap(~paste0(month(年月日),"月")) +
+  ggtitle("年代性別月ごとのコロナ陽性者数",
+          subtitle=paste0(Sys.Date(),"データ取得") )+
+    theme_gray (base_family = "HiraKakuPro-W3")
